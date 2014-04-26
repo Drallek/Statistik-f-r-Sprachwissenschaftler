@@ -1,6 +1,6 @@
 # Hausaufgabe 03
 # Kerstin Dralle <Drallek@students.uni-marburg.de>
-# 2014-04-25
+# 2014-04-26
 # Diese Datei darf nur Prüfungszwecken dienen.
 
 # Sie sollten die Datei auch in Ihren Ordner kopieren und einen Commit machen, 
@@ -45,7 +45,7 @@ zahl <- 42
 print(zahl)
 
 # können wir auch sie indizieren (zwar nur mit [1]), weil es nur ein Element gibt
-# print(zahl[1])
+print(zahl[1])
 
 # Diese starke Orientierung an Daten statt an Datenpunkte ist eine große Stärke
 # von R, die R von vielen anderen Programmiersprachen unterscheidet.

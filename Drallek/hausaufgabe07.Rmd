@@ -56,7 +56,7 @@ Das funktioniert, weil alles rechts von `<-` zuerst gemacht wird. *Die Zuweisung
 ```{r}
 library(ggplot2)
 # we use geom_line() because dnorm() already gave us the densities! 
-# we onle use geom_density() when ggplot should calculate the density for us
+# we only use geom_density() when ggplot should calculate the density for us
 ggplot(data=noten.dist,aes(x=Notenpunkte,y=P,color=Standardabweichung)) + geom_line() + scale_x_continuous(limits=c(0,16))
 ```
 Ich habe die Grenzen der Grafik ein bisschen breiter gestellt, sodass man die Endpunkte klar sieht und Sie auch einen weiteren `ggplot`-Befehl kennen lernen. 
@@ -84,7 +84,13 @@ for(s in c(3,4,5) ){
 
 Aber wir hoffen alle, dass wir doch eine gute Note bekommen. Fügen Sie einen Code-Block hier ein, der das gleiche aber mit "ausgezeichneten" Noten (=1 bzw. >= 13) macht. (Bei evtl. Copy-Paste nicht vergessen, "fallen...durch" durch etwas Passendes zu ersetzen!)  
 
-code_block_hier
+```{r}
+for(s in c(3,4,5) ){
+ausgezeichnet <- pnorm(13,mean=mu,sd=s)
+output <- paste("Bei einer Standabweichung von",s, "sind",ausgezeichnet*100,"% ausgezeichnet.")
+print(output)
+}
+```
 
 Wie steht die Anzahl guter Noten in Beziehung zur Anzahl schlechter Noten? 
 

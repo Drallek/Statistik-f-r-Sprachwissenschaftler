@@ -94,7 +94,7 @@ print(output)
 
 Wie steht die Anzahl guter Noten in Beziehung zur Anzahl schlechter Noten? 
 
-antwort_hier
+Es fallen mehr Studenten durch.
 
 Warum?
 
@@ -118,6 +118,7 @@ qplot(x=1:15,y=dsn(1:15, xi=c(12), omega=1, alpha=-3, log=FALSE),geom="line",xla
 
 ## Von Perzentilen auf Häufikgeiten
 Wir können die Perzentile in (absolute) Häufigkeiten übersetzen. Nehmen wir an, dass es 50 Studenten in einem Kurs gibt und dass die Noten wie oben normal verteilt sind. Dann können wir unserem Data.Frame eine weitere Spalte hinzufügen:
+
 ```{r}
 n <- 50
 noten.dist$Anzahl <- noten.dist$P * n

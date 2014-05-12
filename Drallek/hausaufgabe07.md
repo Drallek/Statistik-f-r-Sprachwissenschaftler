@@ -219,7 +219,7 @@ Schiefe (*skewness*) beschriebt die (A)Symmetrie einer Verteilung. Eine Verteilu
 
 Die Verteilung von Noten ist oft schief mit mehr guten Noten. Ist die Verteilung rechts- oder linksschief?
 
-In diesem Beispiel ist die Verteilung der Noten rechtsschief. 
+Die Verteilung ist in diesem Beispiel rechtsschief. 
 
 Vielleicht hilft folgende Grafik mit der Visualisierung:
 

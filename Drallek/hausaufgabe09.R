@@ -24,7 +24,7 @@
 # 8. Vergessen Sie nicht am Ende, die Lizenz ggf. zu ändern!
 
 # Um einiges leichter zu machen, sollten Sie auch die
-# Datei punnkt_rt.tab aus dem Data-Ordner kopieren, stagen und commiten. Sie
+# Datei punkt_rt.tab aus dem Data-Ordner kopieren, stagen und commiten. Sie
 # müssen ggf. Ihr Arbeitsverzeichnis setzen, wenn R die .tab-Datei nicht finden
 # kann: 
 # Session > Set Working Directory > Source File Location

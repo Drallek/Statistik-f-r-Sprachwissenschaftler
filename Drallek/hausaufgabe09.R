@@ -40,7 +40,7 @@ library(car)
 # car steht übrigens für "Companion to Appled Regression"
 
 # und danach die Daten:
-rt <- read.table("Drallekk//punkt_rt.tab",header=TRUE) 
+rt <- read.table("Drallek//punkt_rt.tab",header=TRUE) 
 # Die Daten sind Reaktionszeiten von zwei Versuchspersonen auf einen weißen
 # Punkt auf einem schwarzen Bildschirm. Die Verzögerung (delay) zwischen Trials
 # (Läufen) war zufällig und mitaugenommen. 
@@ -122,7 +122,6 @@ if (shapiro2$p.value > 0.05){print("Shapiro's test insignifikant, die Daten sind
 
 rt$logRT <- log(rt$RT)
 print(summary(rt$logRT))
-print(rt$logRT)
 logrt.plot <- qplot(x=logRT,color=subj,fill=subj,data=rt, geom="density",alpha=I(0.3))
 print(logrt.plot)
 

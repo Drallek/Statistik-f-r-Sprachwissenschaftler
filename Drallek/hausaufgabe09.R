@@ -1,6 +1,6 @@
 # Hausaufgabe 09
 # Kerstin Dralle <Drallek@students.uni-marburg.de>
-# 2014-05-15
+# 2014-05-18
 # Dieses Werk dient nur Prüfungszwecken.
 
 
@@ -40,7 +40,7 @@ library(car)
 # car steht übrigens für "Companion to Appled Regression"
 
 # und danach die Daten:
-rt <- read.table("Drallek//punkt_rt.tab",header=TRUE) 
+rt <- read.table("C:/Users/Kerstin/Documents/Statistik-f-r-Sprachwissenschaftler/Drallek/punkt_rt.tab",header=TRUE) 
 # Die Daten sind Reaktionszeiten von zwei Versuchspersonen auf einen weißen
 # Punkt auf einem schwarzen Bildschirm. Die Verzögerung (delay) zwischen Trials
 # (Läufen) war zufällig und mitaugenommen. 
@@ -77,12 +77,19 @@ print(f.test)
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # F-Test "Varianzen Ungleich" ist.
 
+Die Varianzen sind nicht homogen, da die Nullhypothese nicht zutrifft (p=0,04, d.h. p < 0,05).
+
 # Berechenen Sie den Levene Test:
 lev.test <- levene.test(rt$RT ~ rt$subj)
 print(lev.test)
 
+# oder (alternativ):
+lev.test.alternativ <- leveneTest(rt$RT ~ rt$subj)
+print(lev.test.alternativ)
+
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # Levene Test "Varianzen Gleich" ist.
+Der p-Wert beträgt 0,37 und somit ist p > 0,05. Die Varianzen sind homogen. 
 
 # Für heterogene Varianzen haben wir eine Variante des  t-Tests gesehen, die
 # eine Korrektur der Freiheitsgerade macht. Bei homogener Varianz sollten beide
@@ -122,7 +129,7 @@ if (shapiro2$p.value > 0.05){print("Shapiro's test insignifikant, die Daten sind
 
 rt$logRT <- log(rt$RT)
 print(summary(rt$logRT))
-logrt.plot <- qplot(x=logRT,color=subj,fill=subj,data=rt, geom="density",alpha=I(0.3))
+logrt.plot <- qplot(x=rt$logRT,color=subj,fill=subj,data=rt, geom="density",alpha=I(0.3))
 print(logrt.plot)
 
 # Sieht die Verteilung besser aus? Sind die Varianzen "homogener" geworden? 
@@ -134,13 +141,13 @@ print(logrt.plot)
 f.test2 <- var.test(rt$logRT ~ rt$subj)
 print(f.test2)
 #
-if (f.test2$p.value > 0.05){print("F-Test insignifikant, die Varianzen sind nicht homogen.")}else{print("F-Test signifikant, die Varianzen sind homogen.")}
+if (f.test2$p.value > 0.05){print("F-Test insignifikant, die Varianzen sind homogen.")}else{print("F-Test signifikant, die Varianzen sind nicht homogen.")}
 
 #Levene-Test
 lev.test2 <- levene.test(rt$logRT ~ rt$subj)
 print(lev.test2)
 #
-if (lev.test2$p.value > 0.05){print("Levene-Test insignifikant, die Varianzen sind homogen.")}else{print("Levene-Test signifikant, die Varianzen sind nicht homogen.")}
+if (lev.test2$`Pr(>F)` > 0.05){print("Levene-Test insignifikant, die Varianzen sind homogen.")}else{print("Levene-Test signifikant, die Varianzen sind nicht homogen.")}
 
 # Sind die Daten "normaler" gewordern? Berechnen Sie den Shapiro-Test für beide 
 # Gruppen. Nach jeder Gruppe sollten Sie auch programmatisch (=durch if-Blöcke)
@@ -168,3 +175,5 @@ subj2.log <- rt[rt$subj == "2", "logRT"]
 
 welch.log <- t.test(subj1.log,subj2.log)
 print(welch.log)
+
+# Die logarithmische Transformation hat nicht geholfen.

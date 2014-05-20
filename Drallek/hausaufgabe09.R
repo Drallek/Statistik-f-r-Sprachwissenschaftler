@@ -75,7 +75,7 @@ f.test <- var.test(subj1,subj2)
 print(f.test)
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
-# F-Test "Varianzen Ungleich" ist.
+# F-Test "Varianzen Gleich" ist.
 
 Die Varianzen sind nicht homogen, da die Nullhypothese nicht zutrifft (p=0,04, d.h. p < 0,05).
 

@@ -178,7 +178,7 @@ priming.f2 <- ezANOVA(priming
                       )
 ```
 
-###ANOVA
+### ANOVA
 ```{r, results='asis'}
 print(xtable(priming.f2$ANOVA
              , display=c("s","s","d","d","f","f","f","fg","s","g")

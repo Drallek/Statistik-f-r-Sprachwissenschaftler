@@ -33,11 +33,11 @@ Um einiges leichter zu machen, sollten Sie auch die Datei `priming.tab` aus dem 
 
 
 ```r
-priming <- read.table("Drallek/priming.tab", header = T)
+priming <- read.table("Data/priming.tab", header = T)
 ```
 
 ```
-## Warning: cannot open file 'Drallek/priming.tab': No such file or directory
+## Warning: cannot open file 'Data/priming.tab': No such file or directory
 ```
 
 ```
@@ -140,7 +140,7 @@ print(xtable(priming.by.subject), type = "html", include.rownames = FALSE)
 ```
 
 
-Diese Tabelle ist etwas "lang" (ist ja in long format!). Wie könnten sie auch breiter machen mit der Funktion `dcast()` (`cast` für Data Frames) aus dem Paket `reshape2`. 
+Diese Tabelle ist etwas "lang" (ist ja in long format!). Wir könnten sie auch breiter machen mit der Funktion `dcast()` (`cast` für Data Frames) aus dem Paket `reshape2`. 
 
 Mit Versuchspersonen als Zeilen und Bedingungen als Spalten:
 
@@ -342,6 +342,7 @@ ggplot(data = priming) + geom_density(aes(x = RT, color = cond, fill = cond),
 ## Error: object 'priming' not found
 ```
 
+
 Führen Sie die entsprechende Item-Analyse aus.
 
 
@@ -352,6 +353,19 @@ priming.f2 <- ezANOVA(priming, dv = .(RT), wid = .(item), within = .(prime,
 
 ```
 ## Error: object 'priming' not found
+```
+
+
+###ANOVA
+
+```r
+print(xtable(priming.f2$ANOVA, display = c("s", "s", "d", "d", "f", "f", "f", 
+    "fg", "s", "g"), digits = c(0, 0, 0, 0, 2, 2, 2, 2, 0, 2)), type = "html", 
+    include.rownames = FALSE)
+```
+
+```
+## Error: object 'priming.f2' not found
 ```
 
 
@@ -427,8 +441,27 @@ print(xtable(priming.f1.englisch.target$ANOVA, display = c("s", "s", "d", "d",
 # Deutsches Target
 Führen Sie die entsprechende Analyse für deutsches Target aus.
 
-CODE_BLOCK_HIER
+
+```r
+priming.f1.deutsch.target <- ezANOVA(subset(priming, target == "D"), dv = .(RT), 
+    wid = .(subj), within = .(prime), detailed = TRUE)
+```
+
+```
+## Error: object 'priming' not found
+```
+
+```r
+print(xtable(priming.f1.deutsch.target$ANOVA, display = c("s", "s", "d", "d", 
+    "f", "f", "f", "fg", "s", "g"), digits = c(0, 0, 0, 0, 2, 2, 2, 2, 0, 2)), 
+    type = "html", include.rownames = FALSE)
+```
+
+```
+## Error: object 'priming.f1.deutsch.target' not found
+```
+
 
 
 # Lizenz
-Dieses Werk ist dient nur Prüfungszwecken.
+Dieses Werk dient nur Prüfungszwecken.
